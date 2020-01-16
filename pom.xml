@@ -30,7 +30,7 @@
         <dubbo.plus.netty4.version>0.0.6</dubbo.plus.netty4.version>
 
         <!-- Spring -->
-        <spring-framework.version>4.2.5.RELEASE</spring-framework.version>
+        <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
         <mybatis-spring.version>1.3.0</mybatis-spring.version>
         <mybatis.version>3.4.0</mybatis.version>
         <jedis.version>2.7.3</jedis.version>
