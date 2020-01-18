@@ -1,8 +1,7 @@
 package com.tfjybj.framework.auth.util;
 
 
-import com.dmsdbj.itoo.sso.utils.UserInfo;
-import com.dmsdbj.itoo.sso.utils.UserUtil;
+
 import com.tfjybj.framework.auth.util.evn.MacAddressHelper;
 import com.tfjybj.framework.json.JsonHelper;
 import com.tfjybj.framework.result.ApiResultWrapper;
@@ -932,10 +931,10 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
             httpMap.put("elapsed".intern(), responseTime.getTime() - requestTime.getTime());
             httpMap.put("status".intern(), response.getStatus());
 
-            UserInfo curUser = UserUtil.getCurrentUser();
+            /*UserInfo curUser = UserUtil.getCurrentUser();
             if (curUser != null) {
                 httpMap.put("user", JsonHelper.toJson(curUser));
-            }
+            }*/
 
 //            String message = "";
 //            if (StringUtils.isEmpty(StringUtils.safeToString(httpMap.get("params")))) {

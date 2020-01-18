@@ -11,7 +11,8 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.processors.JsonValueProcessor;
 import org.apache.commons.collections.map.HashedMap;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
@@ -29,7 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class JsonHelper {
-    private static final Logger logger = Logger.getLogger(JsonHelper.class);
+    private static final Logger logger = LoggerFactory.getLogger(JsonHelper.class);
     private static JsonHelper util = new JsonHelper();
 
     public static String toPrettyJson(Object value, boolean transferNullToEmpty) {

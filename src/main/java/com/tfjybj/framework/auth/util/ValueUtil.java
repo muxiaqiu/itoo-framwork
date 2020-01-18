@@ -1,8 +1,6 @@
 package com.tfjybj.framework.auth.util;
 
 import com.alibaba.fastjson.util.TypeUtils;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 
 import com.tfjybj.framework.auth.util.validate.RegexNewUtils;
 import com.tfjybj.framework.exception.ApplicationException;
@@ -40,7 +38,7 @@ public class ValueUtil {
         }
 
         if (keyRuleMap == null) {
-            keyRuleMap = Maps.newHashMap();
+            keyRuleMap = new HashMap<String,String>();
         }
 
         if (keyRuleMap.size() == 0) {
@@ -217,7 +215,7 @@ public class ValueUtil {
         }
 
         if (keyRuleMap == null) {
-            keyRuleMap = Maps.newHashMap();
+            keyRuleMap = new HashMap<String, String>();
         }
 
         if (keyRuleMap.size() == 0) {
@@ -306,11 +304,11 @@ public class ValueUtil {
         if (fromObject == null) {
             throw new ApplicationException("操作的对象不能空！");
         }
-        Set<Field> fromFields = Sets.newHashSet();
+        Set<Field> fromFields = new HashSet<Field>();
         fromFields.addAll(Arrays.asList(fromObject.getClass().getSuperclass().getDeclaredFields()));
         fromFields.addAll(Arrays.asList(fromObject.getClass().getDeclaredFields()));
 
-        Set<Field> toFields = Sets.newHashSet();
+        Set<Field> toFields = new HashSet<Field>();
         toFields.addAll(Arrays.asList(toObject.getClass().getSuperclass().getDeclaredFields()));
         toFields.addAll(Arrays.asList(toObject.getClass().getDeclaredFields()));
 

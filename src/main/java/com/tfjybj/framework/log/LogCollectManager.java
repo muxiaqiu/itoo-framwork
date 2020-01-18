@@ -1,8 +1,6 @@
 package com.tfjybj.framework.log;
 
 
-import com.alibaba.dubbo.monitor.dubbo.Statistics;
-import com.dmsdbj.itoo.tool.spring.SpringContextHolder;
 import com.tfjybj.framework.auth.util.*;
 import com.tfjybj.framework.auth.util.date.DateUtils;
 import com.tfjybj.framework.auth.util.evn.StackTraceUtil;
@@ -12,6 +10,7 @@ import com.tfjybj.framework.result.ApiResultWrapper;
 import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
@@ -114,14 +113,14 @@ public class LogCollectManager {
         common(dubboMap, message, "dubbo_access", startDate);
     }
 
-    public static void dubboMonitor(Statistics statistics) {
+ /*   public static void dubboMonitor(Statistics statistics) {
         try {
             Map dataMap = JsonHelper.objToMap(statistics);
             common(dataMap, JsonHelper.toPrettyJson(statistics), "dubbo_monitor", new Date());
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
-    }
+    }*/
 
     public static void order(Map<String, Object> orderMap, String message) {
         try {

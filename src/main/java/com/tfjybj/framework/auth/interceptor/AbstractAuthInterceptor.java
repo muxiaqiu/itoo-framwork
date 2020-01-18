@@ -89,23 +89,23 @@ public class AbstractAuthInterceptor implements HandlerInterceptor {
 
     private void httpLog(HttpServletRequest request, HttpServletResponse response) {
         try {
-            if (request.getRequestURI().contains("/ping")) {
+          /*  if (request.getRequestURI().contains("/ping")) {
                 return;
-            }
+            }*/
 
-            Map<String, Object> httpInfo = WebUtils.getHttpInfo(request, requestTime.get(), response, new Date());
-            String logInfo = "Request <> ".intern() + httpInfo.get("method") + " " + JsonHelper.toPrettyJson(httpInfo);
+//            Map<String, Object> httpInfo = WebUtils.getHttpInfo(request, requestTime.get(), response, new Date());
+//            String logInfo = "Request <> ".intern() + httpInfo.get("method") + " " + JsonHelper.toPrettyJson(httpInfo);
 
-            String responseBody = ApiResultWrapper.getResponseBody();
-            if (!StringUtils.isEmpty(responseBody)) {
-                logInfo = logInfo + "\nResult:" + responseBody;
-            }
+//            String responseBody = ApiResultWrapper.getResponseBody();
+//            if (!StringUtils.isEmpty(responseBody)) {
+//                logInfo = logInfo + "\nResult:" + responseBody;
+//            }
 
-            if (response.getStatus() == 200) {
-                logger.info(logInfo);
-            } else {
-                logger.error(logInfo);
-            }
+//            if (response.getStatus() == 200) {
+//                logger.info(logInfo);
+//            } else {
+//                logger.error(logInfo);
+//            }
 
             LogCollectManager.http(request, requestTime.get(), response, new Date());
         } catch (Exception ex) {

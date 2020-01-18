@@ -4,11 +4,12 @@ package com.tfjybj.framework.mybatis.interceptor;
 import com.tfjybj.framework.auth.util.TraceUtil;
 import com.tfjybj.framework.auth.util.evn.StackTraceUtil;
 import com.tfjybj.framework.json.JsonHelper;
+import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
-import org.apache.ibatis.mapping.SqlCommandType;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.Configuration;
@@ -19,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.util.*;
 
@@ -27,7 +29,12 @@ import java.util.*;
  */
 @Intercepts({
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
+        @Signature(type = Executor.class,
+                method = "query",
+                args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class,
+                        CacheKey.class, BoundSql.class}),
+        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})
+})
 public class SqlMonitorInterceptor implements Interceptor {
     private static final Logger logger = LoggerFactory.getLogger(SqlMonitorInterceptor.class);
 

@@ -6,9 +6,7 @@ import com.alibaba.fastjson.serializer.BeanContext;
 import com.alibaba.fastjson.serializer.ContextValueFilter;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
+
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import org.apache.commons.collections.map.HashedMap;
@@ -46,12 +44,6 @@ public class FastJsonWrapper {
                 }
                 if (context.getFieldClass() == String.class) {
                     return "";
-                } else if (context.getFieldClass() == List.class) {
-                    return Lists.newArrayList();
-                } else if (context.getFieldClass() == Map.class) {
-                    return Maps.newHashMap();
-                } else if (context.getFieldClass() == Set.class) {
-                    return Sets.newHashSet();
                 } else if (context.getFieldClass() == boolean.class) {
                     return false;
                 } else if (context.getFieldClass() == byte.class) {
